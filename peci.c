@@ -92,7 +92,10 @@ static void init()
  *------------------------------------------------------------------------*/
 void peci_Unlock(int peci_fd)
 {
-    if (peci_fd >= PECI_I3C_HANDLE_MIN && peci_fd <= PECI_I3C_HANDLE_MAX)
+	   
+      /* Reason : It is flagged as a constant expression result because PECI_I3C_HANDLE_MIN and PECI_I3C_HANDLE_MAX are constants.This check is logically correct and necessary for the intended functionality, despite the constants*/ 
+       /* coverity[result_independent_of_operands : FALSE] */
+   if (peci_fd >= PECI_I3C_HANDLE_MIN && peci_fd <= PECI_I3C_HANDLE_MAX)
     {
         int fd_index = PECI_I3C_HANDLE_MAX - peci_fd;
 
@@ -162,6 +165,9 @@ int peci_i3c_chardev_to_cpu(const char* name)
              minor(st.st_rdev));
 
     lpath = malloc(lpath_size);
+
+    memset(lpath, '\0', lpath_size);
+
     if (!lpath)
     {
         ret = -ENOMEM;
@@ -173,6 +179,7 @@ int peci_i3c_chardev_to_cpu(const char* name)
     {
         goto err_free;
     }
+
 
     subpath = strstr(lpath, "peci-i3c");
     if (!subpath)
@@ -401,6 +408,14 @@ static EPECIStatus HW_peci_issue_cmd(unsigned int cmd, char* cmdPtr,
     int cpu = cmdPtr[0] - MIN_CLIENT_ADDR;
     int fd;
 
+    	 
+    
+    
+
+      /* Reason : It is flagged as a constant expression result because PECI_I3C_HANDLE_MIN and PECI_I3C_HANDLE_MAX ar          e constants.This check is logically correct and necessary for the intended functionality, despite the constants*/
+
+    
+    /* coverity[result_independent_of_operands : FALSE] */
     if (peci_fd >= PECI_I3C_HANDLE_MIN && peci_fd <= PECI_I3C_HANDLE_MAX)
     {
         fd = peci_i3c_fds[PECI_I3C_HANDLE_MAX - peci_fd][cpu];

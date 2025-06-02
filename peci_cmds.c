@@ -312,6 +312,10 @@ int main(int argc, char* argv[])
                     printf("Succeeded\n");
                 }
             }
+	    if (loops == 0)
+	    {
+		  break;
+	    }
         }
     }
     else if (strcmp(cmd, "getdib") == 0)
@@ -343,6 +347,10 @@ int main(int argc, char* argv[])
                     printf("   0x%" PRIx64 "\n", dib);
                 }
             }
+	    if (loops == 0)
+	    {
+		break;
+	    }
         }
     }
 
@@ -380,6 +388,10 @@ int main(int argc, char* argv[])
                                64);
                 }
             }
+	    if (loops == 0)
+	    {
+		break;
+	    }
         }
     }
 
@@ -431,6 +443,10 @@ int main(int argc, char* argv[])
                     printf("   cc:0x%02x 0x%" PRIx64 "\n", cc, u64PkgValue);
                 }
             }
+	    if (loops == 0)
+	    {
+		break;
+	    }
         }
         if (looped)
         {
@@ -482,6 +498,10 @@ int main(int argc, char* argv[])
                 }
                 printf("   cc:0x%02x\n", cc);
             }
+	    if (loops == 0)
+	    {
+		break;
+	    }
         }
         if (looped)
         {
@@ -536,6 +556,10 @@ int main(int argc, char* argv[])
                            (unsigned long long)u64MsrVal);
                 }
             }
+	    if (loops == 0)
+	    {
+		 break;
+	    }
         }
         if (looped)
         {
@@ -599,6 +623,10 @@ int main(int argc, char* argv[])
                            u32PciReadVal);
                 }
             }
+	    if (loops == 0)
+	    {
+		break;
+	    }
         }
         if (looped)
         {
@@ -661,6 +689,10 @@ int main(int argc, char* argv[])
                            u32PciReadVal);
                 }
             }
+	    if (loops == 0)
+	    {
+		break;
+	    }
         }
         if (looped)
         {
@@ -721,6 +753,10 @@ int main(int argc, char* argv[])
                 }
                 printf("   cc:0x%02x\n", cc);
             }
+	    if (loops == 0)
+	    {
+		 break;
+	    }
         }
         if (looped)
         {
@@ -781,6 +817,11 @@ int main(int argc, char* argv[])
                            u32PciReadVal);
                 }
             }
+
+	    if (loops == 0)
+	    {
+		break;
+	    }
         }
         if (looped)
         {
@@ -838,6 +879,10 @@ int main(int argc, char* argv[])
                 }
                 printf("   cc:0x%02x\n", cc);
             }
+	    if(loops == 0)
+	    {
+	       break;
+	    }
         }
         if (looped)
         {
@@ -896,6 +941,10 @@ int main(int argc, char* argv[])
                            u32PciReadVal);
                 }
             }
+	    if(loops == 0)
+	    {
+		break;
+	    }
         }
         if (looped)
         {
@@ -952,6 +1001,10 @@ int main(int argc, char* argv[])
                 }
                 printf("   cc:0x%02x\n", cc);
             }
+	    if(loops == 0)
+	    {
+	       break;
+	    }
         }
         if (looped)
         {
@@ -1014,6 +1067,10 @@ int main(int argc, char* argv[])
                            u64MmioReadVal);
                 }
             }
+	    if(loops == 0)
+	    {
+	       break;
+	    }
         }
         if (looped)
         {
@@ -1073,6 +1130,10 @@ int main(int argc, char* argv[])
                 }
                 printf("   cc:0x%02x\n", cc);
             }
+	    if(loops == 0)
+	    {
+	       break;
+	    }
         }
         if (looped)
         {
@@ -1185,6 +1246,10 @@ int main(int argc, char* argv[])
                             printf("\n");
                         }
                     }
+		    if(loops == 0)
+		    {
+		       break;
+		    }
                 }
                 if (looped)
                 {
@@ -1248,6 +1313,10 @@ int main(int argc, char* argv[])
                             printf("\n");
                         }
                     }
+		    if(loops == 0)
+		    {
+		       break;
+		    } 
                 }
                 if (looped)
                 {
@@ -1324,6 +1393,10 @@ int main(int argc, char* argv[])
                                            u64Data);
                                 }
                             }
+			    if(loops == 0)
+			    {
+				break;
+			    }
                         }
                         if (looped)
                         {
@@ -1381,6 +1454,10 @@ int main(int argc, char* argv[])
                                 }
                                 printf("   cc:0x%02x\n", cc);
                             }
+			    if(loops == 0)
+			    {
+			      break;
+			    }
                         }
                         if (looped)
                         {
@@ -1451,6 +1528,10 @@ int main(int argc, char* argv[])
                             printf("\n");
                         }
                     }
+		    if(loops == 0)
+		    {
+			break;
+		    }
                 }
                 if (looped)
                 {
@@ -1539,6 +1620,11 @@ int main(int argc, char* argv[])
                 printf("\n");
             }
             ccCounts[rawResp[0]]++;
+	    
+	    if(loops == 0)
+	    {
+		break;
+	    }
         }
         if (!verbose)
         {
