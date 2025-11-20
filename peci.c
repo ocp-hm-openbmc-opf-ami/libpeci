@@ -63,14 +63,14 @@ void peci_SetDevName(char* peci_dev)
         peci_name_new[DEV_NAME_SIZE - 1] = '\0';
         peci_device_list[0] = peci_name_new;
         peci_device_list[1] = NULL;
-        syslog(LOG_INFO, "PECI set dev name to %s\n", peci_device_list[0]);
+        //syslog(LOG_INFO, "PECI set dev name to %s\n", peci_device_list[0]);
     }
     else
     {
         peci_device_list[0] = "/dev/peci-default";
         peci_device_list[1] = "/dev/peci-0";
-        syslog(LOG_INFO, "PECI set dev names to %s, %s\n", peci_device_list[0],
-               peci_device_list[1]);
+        //syslog(LOG_INFO, "PECI set dev names to %s, %s\n", peci_device_list[0],
+        //       peci_device_list[1]);
     }
 }
 
@@ -254,10 +254,12 @@ static int peci_i3c_open(char* name, int idx)
 
 static int peci_device_i3c_open(void)
 {
+      /* Reason for False Positive -scandir will take of allocate memory we dont need to do it manually*/
+    /* coverity[uninit_use_in_call : FALSE] */
     struct dirent** namelist;
     int if_any = 0;
     int idx = -1;
-    int n;
+    int n=0;
 
     for (int i = 0; i < PECI_I3C_HANDLE_CNT; i++)
     {
@@ -281,6 +283,8 @@ static int peci_device_i3c_open(void)
 
     memset(peci_i3c_fds[idx], -1, MAX_CPUS * sizeof(int));
 
+    /* Reason for False Positive -scandir will take of allocate memory we dont need to do it manually*/
+    /* coverity[uninit_use_in_call : FALSE] */
     n = scandir("/dev", &namelist, &peci_chardev_filter, alphasort);
     if (n == -1)
     {
@@ -375,7 +379,7 @@ EPECIStatus peci_Lock(int* peci_fd, int timeout_ms)
 /*-------------------------------------------------------------------------
  * This function closes the peci interface
  *------------------------------------------------------------------------*/
-static void peci_Close(int peci_fd)
+void peci_Close(int peci_fd)
 {
     peci_Unlock(peci_fd);
 }
@@ -383,7 +387,7 @@ static void peci_Close(int peci_fd)
 /*-------------------------------------------------------------------------
  * This function opens the peci interface and returns a file descriptor
  *------------------------------------------------------------------------*/
-static EPECIStatus peci_Open(int* peci_fd)
+EPECIStatus peci_Open(int* peci_fd)
 {
     if (NULL == peci_fd)
     {
@@ -2464,7 +2468,7 @@ EPECIStatus peci_GetCPUID(const uint8_t clientAddr, CPUModel* cpuModel,
 /*-------------------------------------------------------------------------
  * This function allows to wake up the peci
  *------------------------------------------------------------------------*/
-EPECIStatus peci_WakePECI(const uint8_t clientAddr, uint8_t domainId, uint8_t* cc)
+EPECIStatus peci_WakePECI(const uint8_t clientAddr, uint8_t domainId, int peci_fd, uint8_t* cc)
 {
         EPECIStatus ret     = PECI_CC_SUCCESS;
 
@@ -2479,7 +2483,7 @@ EPECIStatus peci_WakePECI(const uint8_t clientAddr, uint8_t domainId, uint8_t* c
                 return PECI_CC_INVALID_REQ;
         }
 
-        ret = peci_WrPkgConfig_dom(clientAddr,domainId, pkgIndex, param, &value, wrLen, cc);
+	ret = peci_WrPkgConfig_seq_dom(clientAddr,domainId, pkgIndex, param, &value, wrLen, peci_fd, cc);
 
         return ret;
 }

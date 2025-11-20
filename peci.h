@@ -501,7 +501,9 @@ EPECIStatus peci_GetCPUID(const uint8_t clientAddr, CPUModel* cpuModel,
                           uint8_t* stepping, uint8_t* cc);
 void peci_SetDevName(char* peci_dev);
 int peci_i3c_chardev_to_cpu(const char* name);
-EPECIStatus peci_WakePECI(const uint8_t clientAddr, uint8_t domainId, uint8_t* cc);
+EPECIStatus peci_WakePECI(const uint8_t clientAddr, uint8_t domainId, int peci_fd, uint8_t* cc);
+void peci_Close(int peci_fd);
+EPECIStatus peci_Open(int* peci_fd);
 #ifdef __cplusplus
 }
 #endif
