@@ -312,10 +312,10 @@ int main(int argc, char* argv[])
                     printf("Succeeded\n");
                 }
             }
-	    if (loops == 0)
-	    {
-		  break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
     }
     else if (strcmp(cmd, "getdib") == 0)
@@ -347,10 +347,10 @@ int main(int argc, char* argv[])
                     printf("   0x%" PRIx64 "\n", dib);
                 }
             }
-	    if (loops == 0)
-	    {
-		break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
     }
 
@@ -388,10 +388,10 @@ int main(int argc, char* argv[])
                                64);
                 }
             }
-	    if (loops == 0)
-	    {
-		break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
     }
 
@@ -418,9 +418,9 @@ int main(int argc, char* argv[])
         {
             cc = 0; // reset the cc for each loop
             clock_gettime(CLOCK_REALTIME, &begin);
-            ret = peci_RdPkgConfig_dom(address, domainId, u8PkgIndex,
-                                       u16PkgParam, u8Size,
-                                       (uint8_t*)&u64PkgValue, &cc);
+            ret =
+                peci_RdPkgConfig_dom(address, domainId, u8PkgIndex, u16PkgParam,
+                                     u8Size, (uint8_t*)&u64PkgValue, &cc);
             timeSpent = getTimeDifference(begin);
             if (verbose && measureTime)
             {
@@ -443,10 +443,10 @@ int main(int argc, char* argv[])
                     printf("   cc:0x%02x 0x%" PRIx64 "\n", cc, u64PkgValue);
                 }
             }
-	    if (loops == 0)
-	    {
-		break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -471,15 +471,15 @@ int main(int argc, char* argv[])
         if (verbose)
         {
             printf("Pkg Write of Index %02x Param %04x: 0x%" PRIx64 "\n",
-			    u8PkgIndex, u16PkgParam, u64PkgValue);
+                   u8PkgIndex, u16PkgParam, u64PkgValue);
         }
         while (loops--)
         {
             cc = 0; // reset the cc for each loop
             clock_gettime(CLOCK_REALTIME, &begin);
-            ret = peci_WrPkgConfig_dom(address, domainId, u8PkgIndex,
-                                       u16PkgParam, (uint8_t*)&u64PkgValue,
-				       u8Size, &cc);
+            ret =
+                peci_WrPkgConfig_dom(address, domainId, u8PkgIndex, u16PkgParam,
+                                     (uint8_t*)&u64PkgValue, u8Size, &cc);
             timeSpent = getTimeDifference(begin);
             if (verbose && measureTime)
             {
@@ -498,10 +498,10 @@ int main(int argc, char* argv[])
                 }
                 printf("   cc:0x%02x\n", cc);
             }
-	    if (loops == 0)
-	    {
-		break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -556,10 +556,10 @@ int main(int argc, char* argv[])
                            (unsigned long long)u64MsrVal);
                 }
             }
-	    if (loops == 0)
-	    {
-		 break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -623,10 +623,10 @@ int main(int argc, char* argv[])
                            u32PciReadVal);
                 }
             }
-	    if (loops == 0)
-	    {
-		break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -689,10 +689,10 @@ int main(int argc, char* argv[])
                            u32PciReadVal);
                 }
             }
-	    if (loops == 0)
-	    {
-		break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -753,10 +753,10 @@ int main(int argc, char* argv[])
                 }
                 printf("   cc:0x%02x\n", cc);
             }
-	    if (loops == 0)
-	    {
-		 break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -818,10 +818,10 @@ int main(int argc, char* argv[])
                 }
             }
 
-	    if (loops == 0)
-	    {
-		break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -879,10 +879,10 @@ int main(int argc, char* argv[])
                 }
                 printf("   cc:0x%02x\n", cc);
             }
-	    if(loops == 0)
-	    {
-	       break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -941,10 +941,10 @@ int main(int argc, char* argv[])
                            u32PciReadVal);
                 }
             }
-	    if(loops == 0)
-	    {
-		break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -1001,10 +1001,10 @@ int main(int argc, char* argv[])
                 }
                 printf("   cc:0x%02x\n", cc);
             }
-	    if(loops == 0)
-	    {
-	       break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -1067,10 +1067,10 @@ int main(int argc, char* argv[])
                            u64MmioReadVal);
                 }
             }
-	    if(loops == 0)
-	    {
-	       break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -1130,10 +1130,10 @@ int main(int argc, char* argv[])
                 }
                 printf("   cc:0x%02x\n", cc);
             }
-	    if(loops == 0)
-	    {
-	       break;
-	    }
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (looped)
         {
@@ -1177,7 +1177,7 @@ int main(int argc, char* argv[])
                            u8Opcode, u8SubOpcode, u8Param0, u16Param1,
                            u8Param2);
                 }
-		// Set the return size based on the command
+                // Set the return size based on the command
                 switch (u8SubOpcode)
                 {
                     case 0:
@@ -1216,7 +1216,7 @@ int main(int argc, char* argv[])
                 while (loops--)
                 {
                     cc = 0; // reset the cc for each loop
-		    clock_gettime(CLOCK_REALTIME, &begin);
+                    clock_gettime(CLOCK_REALTIME, &begin);
                     ret = peci_Telemetry_Discovery_dom(
                         address, domainId, u8SubOpcode, u8Param0, u16Param1,
                         u8Param2, u8Size, pData, &cc);
@@ -1246,10 +1246,10 @@ int main(int argc, char* argv[])
                             printf("\n");
                         }
                     }
-		    if(loops == 0)
-		    {
-		       break;
-		    }
+                    if (loops == 0)
+                    {
+                        break;
+                    }
                 }
                 if (looped)
                 {
@@ -1272,7 +1272,7 @@ int main(int argc, char* argv[])
                         printf("Telemetry 0x02 <index sample>\n");
                         return 1;
                 }
-		if (verbose)
+                if (verbose)
                 {
                     printf("Telemetry Get Telem Sample Opcode:0x%02x "
                            "Index:0x%04x Sample:0x%04x\n",
@@ -1284,9 +1284,9 @@ int main(int argc, char* argv[])
                 {
                     cc = 0; // reset the cc for each loop
                     clock_gettime(CLOCK_REALTIME, &begin);
-                    ret = peci_Telemetry_GetTelemSample_dom(address, domainId,
-                                                            u16Index, u16Sample,
-                                                            u8Size, pData, &cc);
+                    ret = peci_Telemetry_GetTelemSample_dom(
+                        address, domainId, u16Index, u16Sample, u8Size, pData,
+                        &cc);
                     timeSpent = getTimeDifference(begin);
                     if (verbose && measureTime)
                     {
@@ -1313,10 +1313,10 @@ int main(int argc, char* argv[])
                             printf("\n");
                         }
                     }
-		    if(loops == 0)
-		    {
-		       break;
-		    } 
+                    if (loops == 0)
+                    {
+                        break;
+                    }
                 }
                 if (looped)
                 {
@@ -1328,7 +1328,7 @@ int main(int argc, char* argv[])
             {
                 // Get the read/write parameter
                 if (argc == optind)
-		{
+                {
                     // Exit if no read/write parameter provided
                     printf("ERROR: Missing read/write argument for Telemetry "
                            "Config Watcher\n");
@@ -1342,10 +1342,10 @@ int main(int argc, char* argv[])
                         switch (argc - optind)
                         {
                             case 2:
-                                u16Offset = (uint16_t)strtoul(argv[--index],
-                                                              NULL, 0);
-                                u16Watcher = (uint16_t)strtoul(argv[--index],
-                                                               NULL, 0);
+                                u16Offset =
+                                    (uint16_t)strtoul(argv[--index], NULL, 0);
+                                u16Watcher =
+                                    (uint16_t)strtoul(argv[--index], NULL, 0);
                                 break;
 
                             default:
@@ -1378,7 +1378,7 @@ int main(int argc, char* argv[])
                                        (loopCount - loops), timeSpent);
                             }
                             totalTimeSpent += timeSpent;
-			    ccCounts[cc]++;
+                            ccCounts[cc]++;
 
                             if (verbose || loops == 0)
                             {
@@ -1393,10 +1393,10 @@ int main(int argc, char* argv[])
                                            u64Data);
                                 }
                             }
-			    if(loops == 0)
-			    {
-				break;
-			    }
+                            if (loops == 0)
+                            {
+                                break;
+                            }
                         }
                         if (looped)
                         {
@@ -1407,12 +1407,12 @@ int main(int argc, char* argv[])
                         switch (argc - optind)
                         {
                             case 3:
-                                u64Data = (uint64_t)strtoull(argv[--index],
-                                                             NULL, 0);
-                                u16Offset = (uint16_t)strtoul(argv[--index],
-                                                              NULL, 0);
-                                u16Watcher = (uint16_t)strtoul(argv[--index],
-                                                               NULL, 0);
+                                u64Data =
+                                    (uint64_t)strtoull(argv[--index], NULL, 0);
+                                u16Offset =
+                                    (uint16_t)strtoul(argv[--index], NULL, 0);
+                                u16Watcher =
+                                    (uint16_t)strtoul(argv[--index], NULL, 0);
                                 break;
 
                             default:
@@ -1431,7 +1431,7 @@ int main(int argc, char* argv[])
                                    (unsigned long long)u64Data);
                         }
                         while (loops--)
-			{
+                        {
                             cc = 0; // reset the cc for each loop
                             clock_gettime(CLOCK_REALTIME, &begin);
                             ret = peci_Telemetry_ConfigWatcherWr_dom(
@@ -1454,10 +1454,10 @@ int main(int argc, char* argv[])
                                 }
                                 printf("   cc:0x%02x\n", cc);
                             }
-			    if(loops == 0)
-			    {
-			      break;
-			    }
+                            if (loops == 0)
+                            {
+                                break;
+                            }
                         }
                         if (looped)
                         {
@@ -1477,7 +1477,7 @@ int main(int argc, char* argv[])
                 switch (argc - optind)
                 {
                     case 2:
-			u16Sample = (uint16_t)strtoul(argv[--index], NULL, 0);
+                        u16Sample = (uint16_t)strtoul(argv[--index], NULL, 0);
                         u16Index = (uint16_t)strtoul(argv[--index], NULL, 0);
                         break;
 
@@ -1512,7 +1512,7 @@ int main(int argc, char* argv[])
                     ccCounts[cc]++;
 
                     if (verbose || loops == 0)
-		    {
+                    {
                         if (0 != ret)
                         {
                             printf("ERROR %d: command failed\n", ret);
@@ -1528,10 +1528,10 @@ int main(int argc, char* argv[])
                             printf("\n");
                         }
                     }
-		    if(loops == 0)
-		    {
-			break;
-		    }
+                    if (loops == 0)
+                    {
+                        break;
+                    }
                 }
                 if (looped)
                 {
@@ -1620,11 +1620,11 @@ int main(int argc, char* argv[])
                 printf("\n");
             }
             ccCounts[rawResp[0]]++;
-	    
-	    if(loops == 0)
-	    {
-		break;
-	    }
+
+            if (loops == 0)
+            {
+                break;
+            }
         }
         if (!verbose)
         {
