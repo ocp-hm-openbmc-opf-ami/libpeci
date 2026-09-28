@@ -110,6 +110,10 @@ if (get_option('raw-peci').allowed())
     subdir('service_files')
 endif
 
+if get_option('tests').enabled()
+    subdir('tests')
+endif
+
 import('pkgconfig').generate(
     libpeci,
     name: meson.project_name(),
