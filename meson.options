@@ -4,3 +4,10 @@ option(
     value: 'disabled',
     description: 'Build raw-peci application',
 )
+option(
+    'tests',
+    type: 'feature',
+    description: 'Include Test suite for UT',
+)
+
+
